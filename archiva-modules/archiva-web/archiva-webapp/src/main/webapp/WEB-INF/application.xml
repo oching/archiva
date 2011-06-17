@@ -102,6 +102,22 @@
             <name>org.jpox.rdbms.dateTimezone</name>
             <value>JDK_DEFAULT_TIMEZONE</value>
           </property>
+          <property>
+            <name>org.jpox.cache.level2</name>
+            <value>true</value>
+          </property>
+          <property>
+            <name>org.jpox.cache.level2.type</name>
+            <value>ehcacheclassbased</value>
+          </property>
+          <property>
+            <name>org.jpox.cache.level2.configurationFile</name>
+            <value>/ehcache.xml</value>
+          </property>
+          <property>
+            <name>org.jpox.cache.level2.cacheName</name>
+            <value>default</value>
+          </property>
           <!-- NEEDED FOR MYSQL UTF-8 Databases -->
           <property>
             <name>org.jpox.rdbms.stringDefaultLength</name>
