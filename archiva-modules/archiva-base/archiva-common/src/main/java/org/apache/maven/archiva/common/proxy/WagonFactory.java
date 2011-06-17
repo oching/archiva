@@ -1,4 +1,4 @@
-package org.apache.maven.archiva.proxy;
+package org.apache.maven.archiva.common.proxy;
 
 /*
  * Licensed to the Apache Software Foundation (ASF) under one
@@ -19,25 +19,20 @@ package org.apache.maven.archiva.proxy;
  * under the License.
  */
 
-import org.apache.maven.archiva.common.proxy.WagonFactory;
 import org.apache.maven.wagon.Wagon;
-import org.codehaus.plexus.spring.PlexusInSpringTestCase;
 
 /**
- * Test the WagonFactory works through Spring to be bound into the RepositoryProxyConnectors implementation.
+ * Create a Wagon instance for the given protocol. Implementation will be provided by a Spring service locator.
  * 
  */
-public class WagonFactoryTest
-    extends PlexusInSpringTestCase
+public interface WagonFactory
 {
-    public void testLookupSuccessiveWagons()
-    {
-        WagonFactory factory = (WagonFactory) lookup( WagonFactory.class );
-        
-        Wagon first = factory.getWagon( "wagon#file" );
-        
-        Wagon second = factory.getWagon( "wagon#file" );
-        
-        assertNotSame( first, second );
-    }
+    /**
+     * Create a new Wagon instance for the given protocol.
+     * 
+     * @param   protocol the protocol to find the Wagon for, which must be prefixed with <code>wagon#</code>, for example 
+     *          <code>wagon#http</code>.
+     * @return  the Wagon instance
+     */
+    Wagon getWagon( String protocol );
 }

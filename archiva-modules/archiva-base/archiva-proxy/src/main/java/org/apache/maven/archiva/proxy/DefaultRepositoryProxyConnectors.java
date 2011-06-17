@@ -35,6 +35,7 @@ import org.apache.archiva.scheduler.repository.RepositoryTask;
 import org.apache.commons.collections.CollectionUtils;
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.lang.StringUtils;
+import org.apache.maven.archiva.common.proxy.WagonFactory;
 import org.apache.maven.archiva.configuration.ArchivaConfiguration;
 import org.apache.maven.archiva.configuration.ConfigurationNames;
 import org.apache.maven.archiva.configuration.NetworkProxyConfiguration;
